@@ -56,3 +56,14 @@ Databse named "Events" consist of 3 collections:
 
 
 To authorize users, a json web token has been used. Once a user logs in , he will get a jwt token. A middleware will check for this jwt in the request header and decode it. A user will not be authorized in case the token cannot be decoded or is not present at all.
+
+
+The achitecture is divided into 2 main folders:
+1) common : This has all the middleware, database and configuration utilities
+   a) config : contains sever host:port configurations , database configuration and secret key used to create jwt
+   b) database : contains mongodb util, to perform basic mongo queries on database
+   c) utils : contains verfication token middleware and a multer middleware
+2)microservice: This has a server.js and rest of the files to handle requests
+   a) event-route.js : routes the request to appropriate controller handler(function)
+   b) event-controller.js : performs basic operations on the request body and forwards the new data to appropriate service handler
+   c) event-service.js : creates appropriate mongo queries and calls mongodb-util.js handlers to fetch/create/update/remove data
