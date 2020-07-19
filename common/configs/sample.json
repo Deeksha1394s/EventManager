@@ -1,0 +1,14 @@
+{
+  "env": "development",
+    "server": {
+      "port": 3010,
+      "host": "http://localhost:3010"
+    },
+    "mongodb": {
+      "url": "mongodb://dbadmin:12345@127.0.0.1:27017/Events"
+    },
+   "token": {
+    "secret": "12345",
+    "expires": 86400
+  }
+}
